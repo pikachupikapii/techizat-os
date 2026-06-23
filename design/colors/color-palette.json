@@ -1,0 +1,42 @@
+{
+  "primary": {
+    "blue": "#3A86FF",
+    "purple": "#7B2CBF",
+    "cyan": "#06FFA5"
+  },
+  "backgrounds": {
+    "dark": "#0a0e27",
+    "dark_secondary": "#1a1f3a",
+    "dark_tertiary": "#2a2f4a"
+  },
+  "text": {
+    "primary": "#e0e0e0",
+    "secondary": "#b0b0b0",
+    "disabled": "#696969"
+  },
+  "status": {
+    "success": "#06FFA5",
+    "warning": "#FFD60A",
+    "error": "#FF006E",
+    "info": "#3A86FF"
+  },
+  "gradients": {
+    "primary_gradient": "linear-gradient(135deg, #3A86FF 0%, #7B2CBF 100%)",
+    "neon_gradient": "linear-gradient(135deg, #7B2CBF 0%, #06FFA5 100%)",
+    "dark_gradient": "linear-gradient(180deg, #1a1f3a 0%, #0a0e27 100%)",
+    "cyber_gradient": "linear-gradient(90deg, #3A86FF 0%, #06FFA5 100%)"
+  },
+  "opacity": {
+    "full": 1,
+    "high": 0.9,
+    "medium": 0.6,
+    "low": 0.3,
+    "very_low": 0.1
+  },
+  "shadows": {
+    "glow_blue": "0 0 15px rgba(58, 134, 255, 0.3)",
+    "glow_cyan": "0 0 15px rgba(6, 255, 165, 0.3)",
+    "glow_purple": "0 0 15px rgba(123, 44, 191, 0.3)",
+    "deep_glow": "0 0 25px rgba(6, 255, 165, 0.4)"
+  }
+}

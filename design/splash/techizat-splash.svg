@@ -1,0 +1,49 @@
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="splashGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e27;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a1f3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0e27;stop-opacity:1" />
+    </linearGradient>
+    <filter id="splashGlow">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#splashGradient)"/>
+  
+  <!-- Decorative hexagons -->
+  <polygon points="400,300 480,250 560,300 560,400 480,450 400,400" fill="none" stroke="#3A86FF" stroke-width="3" opacity="0.4" filter="url(#splashGlow)"/>
+  <polygon points="1400,200 1500,130 1600,200 1600,340 1500,410 1400,340" fill="none" stroke="#7B2CBF" stroke-width="3" opacity="0.3" filter="url(#splashGlow)"/>
+  <polygon points="200,800 280,750 360,800 360,900 280,950 200,900" fill="none" stroke="#06FFA5" stroke-width="2" opacity="0.3" filter="url(#splashGlow)"/>
+  <polygon points="1650,850 1730,800 1810,850 1810,950 1730,1000 1650,950" fill="none" stroke="#3A86FF" stroke-width="2" opacity="0.4" filter="url(#splashGlow)"/>
+  
+  <!-- Center owl logo (simplified) -->
+  <circle cx="960" cy="500" r="120" fill="none" stroke="#3A86FF" stroke-width="2" opacity="0.3" filter="url(#splashGlow)"/>
+  <circle cx="960" cy="500" r="100" fill="none" stroke="#7B2CBF" stroke-width="2" opacity="0.25" filter="url(#splashGlow)"/>
+  
+  <!-- Owl head simplified -->
+  <circle cx="960" cy="480" r="50" fill="#3A86FF" opacity="0.2"/>
+  <!-- Eyes -->
+  <circle cx="945" cy="470" r="12" fill="#06FFA5" filter="url(#splashGlow)"/>
+  <circle cx="975" cy="470" r="12" fill="#06FFA5" filter="url(#splashGlow)"/>
+  <!-- Body -->
+  <ellipse cx="960" cy="560" rx="35" ry="45" fill="#7B2CBF" opacity="0.15"/>
+  
+  <!-- Loading text -->
+  <text x="960" y="700" font-family="monospace" font-size="48" font-weight="bold" text-anchor="middle" fill="#3A86FF" letter-spacing="3">TECHIZAT OS</text>
+  <text x="960" y="760" font-family="monospace" font-size="20" text-anchor="middle" fill="#06FFA5" opacity="0.8" letter-spacing="2">Loading...</text>
+  
+  <!-- Loading bar background -->
+  <rect x="600" y="820" width="720" height="8" fill="rgba(26, 31, 58, 0.6)" rx="4" stroke="#3A86FF" stroke-width="2"/>
+  <!-- Loading bar progress (animated via CSS) -->
+  <rect x="600" y="820" width="0" height="8" fill="url(#splashGradient)" rx="4" class="progress-bar"/>
+  
+  <!-- Bottom text -->
+  <text x="960" y="950" font-family="sans-serif" font-size="16" text-anchor="middle" fill="#b0b0b0" opacity="0.7">Security • AI • Open Source</text>
+</svg>

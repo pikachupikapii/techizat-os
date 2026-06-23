@@ -1,0 +1,38 @@
+/* Techizat Color Palette */
+
+@define-color primary_blue #3A86FF;
+@define-color secondary_purple #7B2CBF;
+@define-color accent_cyan #06FFA5;
+@define-color dark_blue #1a1f3a;
+@define-color darker_blue #0a0e27;
+@define-color neon_pink #FF006E;
+@define-color neon_yellow #FFD60A;
+@define-color neon_orange #FFA500;
+
+/* Text Colors */
+@define-color text_primary #e0e0e0;
+@define-color text_secondary #b0b0b0;
+@define-color text_disabled #696969;
+@define-color text_inverse #0a0e27;
+
+/* Status Colors */
+@define-color success_color #06FFA5;
+@define-color warning_color #FFD60A;
+@define-color error_color #FF006E;
+@define-color info_color #3A86FF;
+
+/* Backgrounds */
+@define-color bg_primary #0a0e27;
+@define-color bg_secondary #1a1f3a;
+@define-color bg_tertiary #2a2f4a;
+@define-color bg_hover #3a4060;
+
+/* Borders */
+@define-color border_light #3A86FF;
+@define-color border_dark #1a1f3a;
+@define-color border_active #06FFA5;
+
+/* Gradients (CSS) */
+/* gradient-primary: linear-gradient(135deg, #3A86FF 0%, #7B2CBF 100%) */
+/* gradient-neon: linear-gradient(135deg, #7B2CBF 0%, #06FFA5 100%) */
+/* gradient-dark: linear-gradient(180deg, #1a1f3a 0%, #0a0e27 100%) */

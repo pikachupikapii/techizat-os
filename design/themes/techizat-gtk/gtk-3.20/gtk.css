@@ -1,0 +1,265 @@
+/* Techizat GTK+ 3.20 Theme - Mavi-Mor Neon */
+
+@define-color primary_color #3A86FF;
+@define-color secondary_color #7B2CBF;
+@define-color accent_color #06FFA5;
+@define-color dark_bg #0a0e27;
+@define-color light_text #e0e0e0;
+@define-color border_color #3A86FF;
+
+/* Global */
+* {
+  background-color: @dark_bg;
+  color: @light_text;
+  border-color: @border_color;
+}
+
+/* Window */
+window {
+  background-color: @dark_bg;
+  color: @light_text;
+  border: 1px solid @border_color;
+  box-shadow: 0 0 20px rgba(58, 134, 255, 0.2);
+}
+
+/* Header Bar */
+headerbar {
+  background: linear-gradient(180deg, #1a1f3a 0%, #0a0e27 100%);
+  color: @light_text;
+  border-bottom: 2px solid @primary_color;
+  box-shadow: 0 2px 10px rgba(58, 134, 255, 0.3);
+}
+
+headerbar button {
+  background-color: transparent;
+  color: @light_text;
+  border: 1px solid @border_color;
+  border-radius: 4px;
+  padding: 6px 12px;
+  transition: all 150ms ease;
+}
+
+headerbar button:hover {
+  background-color: rgba(58, 134, 255, 0.2);
+  border-color: @accent_color;
+  color: @accent_color;
+}
+
+headerbar button:active {
+  background-color: rgba(123, 44, 191, 0.3);
+  border-color: @secondary_color;
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(135deg, #3A86FF 0%, #7B2CBF 100%);
+  color: #ffffff;
+  border: 1px solid @accent_color;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: all 200ms ease;
+  box-shadow: 0 0 15px rgba(58, 134, 255, 0.3);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #5599FF 0%, #9D3FD9 100%);
+  box-shadow: 0 0 25px rgba(6, 255, 165, 0.4);
+  transform: translateY(-2px);
+}
+
+button:active {
+  background: linear-gradient(135deg, #2570EF 0%, #6B1FB0 100%);
+  box-shadow: 0 0 10px rgba(58, 134, 255, 0.5) inset;
+}
+
+button:disabled {
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+/* Entry/Input Fields */
+entry {
+  background-color: rgba(10, 14, 39, 0.8);
+  color: @light_text;
+  border: 2px solid @border_color;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  transition: all 150ms ease;
+}
+
+entry:focus {
+  border-color: @accent_color;
+  background-color: rgba(10, 14, 39, 0.95);
+  box-shadow: 0 0 15px rgba(6, 255, 165, 0.3),
+              0 0 10px rgba(58, 134, 255, 0.2) inset;
+}
+
+/* Labels */
+label {
+  color: @light_text;
+  font-size: 13px;
+}
+
+label.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: @accent_color;
+  text-shadow: 0 0 10px rgba(6, 255, 165, 0.4);
+}
+
+label.subtitle {
+  font-size: 12px;
+  color: rgba(224, 224, 224, 0.7);
+}
+
+/* Scrollbars */
+scrollbar {
+  background-color: rgba(10, 14, 39, 0.5);
+  border: 1px solid @border_color;
+}
+
+scrollbar slider {
+  background: linear-gradient(135deg, #3A86FF 0%, #7B2CBF 100%);
+  border-radius: 6px;
+  border: none;
+  min-width: 8px;
+  min-height: 8px;
+}
+
+scrollbar slider:hover {
+  background: linear-gradient(135deg, #5599FF 0%, #9D3FD9 100%);
+  box-shadow: 0 0 10px rgba(58, 134, 255, 0.4);
+}
+
+/* Menu */
+menu,
+.popup {
+  background-color: #0a0e27;
+  border: 1px solid @border_color;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(58, 134, 255, 0.2);
+}
+
+menuitem {
+  padding: 8px 12px;
+  color: @light_text;
+  transition: all 100ms ease;
+}
+
+menuitem:hover {
+  background-color: rgba(58, 134, 255, 0.15);
+  color: @accent_color;
+}
+
+menuitem:active {
+  background-color: rgba(123, 44, 191, 0.2);
+}
+
+/* Notebook/Tabs */
+notebook {
+  background-color: @dark_bg;
+  border: 1px solid @border_color;
+}
+
+notebook > header {
+  background-color: rgba(10, 14, 39, 0.6);
+  border-bottom: 2px solid @border_color;
+}
+
+notebook > header tabs tab {
+  padding: 10px 20px;
+  color: rgba(224, 224, 224, 0.6);
+  border: none;
+  transition: all 150ms ease;
+}
+
+notebook > header tabs tab:hover {
+  color: @accent_color;
+  background-color: rgba(58, 134, 255, 0.1);
+}
+
+notebook > header tabs tab:active {
+  color: @accent_color;
+  background-color: rgba(58, 134, 255, 0.2);
+  border-bottom: 3px solid @accent_color;
+}
+
+/* Checkbutton & Radio */
+checkbutton check,
+radiobutton radio {
+  border: 2px solid @border_color;
+  border-radius: 4px;
+  background-color: rgba(10, 14, 39, 0.8);
+  min-width: 16px;
+  min-height: 16px;
+}
+
+checkbutton check:checked,
+radiobutton radio:checked {
+  background: linear-gradient(135deg, #3A86FF 0%, #7B2CBF 100%);
+  border-color: @accent_color;
+  box-shadow: 0 0 10px rgba(6, 255, 165, 0.4);
+}
+
+/* Switch */
+switch {
+  background-color: rgba(10, 14, 39, 0.8);
+  border: 2px solid @border_color;
+  border-radius: 12px;
+  min-width: 50px;
+  min-height: 24px;
+}
+
+switch:checked {
+  background: linear-gradient(90deg, #3A86FF 0%, #7B2CBF 100%);
+  border-color: @accent_color;
+}
+
+switch slider {
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin: 2px;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+/* Progressbar */
+progressbar {
+  background-color: rgba(10, 14, 39, 0.8);
+  border: 2px solid @border_color;
+  border-radius: 6px;
+  min-height: 4px;
+}
+
+progressbar trough {
+  min-height: 4px;
+}
+
+progressbar progress {
+  background: linear-gradient(90deg, #3A86FF 0%, #06FFA5 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(6, 255, 165, 0.4);
+}
+
+/* Separator */
+separator {
+  color: @border_color;
+  opacity: 0.3;
+}
+
+/* Tooltip */
+tooltip {
+  background-color: #1a1f3a;
+  color: @light_text;
+  border: 1px solid @border_color;
+  border-radius: 4px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 15px rgba(58, 134, 255, 0.3);
+}
+
+tooltip.background {
+  background-color: #1a1f3a;
+  border: 1px solid @border_color;
+}

@@ -1,0 +1,70 @@
+<svg viewBox="0 0 3840 2160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e27;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1a1f3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0e27;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="hexGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background gradient -->
+  <rect width="3840" height="2160" fill="url(#bgGradient)"/>
+  
+  <!-- Animated hexagon grid background -->
+  <!-- Top left hexagons -->
+  <polygon points="200,400 260,360 320,400 320,520 260,560 200,520" fill="none" stroke="#3A86FF" stroke-width="3" opacity="0.3" filter="url(#hexGlow)"/>
+  <polygon points="400,300 460,260 520,300 520,420 460,460 400,420" fill="none" stroke="#7B2CBF" stroke-width="2" opacity="0.2" filter="url(#hexGlow)"/>
+  <polygon points="600,450 660,410 720,450 720,570 660,610 600,570" fill="none" stroke="#3A86FF" stroke-width="2" opacity="0.25" filter="url(#hexGlow)"/>
+  
+  <!-- Top right hexagons -->
+  <polygon points="3400,350 3460,310 3520,350 3520,470 3460,510 3400,470" fill="none" stroke="#06FFA5" stroke-width="3" opacity="0.3" filter="url(#hexGlow)"/>
+  <polygon points="3200,500 3260,460 3320,500 3320,620 3260,660 3200,620" fill="none" stroke="#3A86FF" stroke-width="2" opacity="0.2" filter="url(#hexGlow)"/>
+  
+  <!-- Center hexagons (larger) -->
+  <polygon points="1900,900 2000,800 2100,900 2100,1100 2000,1200 1900,1100" fill="none" stroke="#3A86FF" stroke-width="4" opacity="0.4" filter="url(#hexGlow)"/>
+  <polygon points="1700,1100 1780,1050 1860,1100 1860,1260 1780,1310 1700,1260" fill="none" stroke="#7B2CBF" stroke-width="3" opacity="0.35" filter="url(#hexGlow)"/>
+  <polygon points="2100,1050 2180,1000 2260,1050 2260,1210 2180,1260 2100,1210" fill="none" stroke="#06FFA5" stroke-width="3" opacity="0.35" filter="url(#hexGlow)"/>
+  
+  <!-- Bottom left hexagons -->
+  <polygon points="300,1700 360,1660 420,1700 420,1820 360,1860 300,1820" fill="none" stroke="#7B2CBF" stroke-width="2" opacity="0.25" filter="url(#hexGlow)"/>
+  <polygon points="500,1800 560,1760 620,1800 620,1920 560,1960 500,1920" fill="none" stroke="#06FFA5" stroke-width="2" opacity="0.2" filter="url(#hexGlow)"/>
+  
+  <!-- Bottom right hexagons -->
+  <polygon points="3300,1750 3360,1710 3420,1750 3420,1870 3360,1910 3300,1870" fill="none" stroke="#3A86FF" stroke-width="3" opacity="0.3" filter="url(#hexGlow)"/>
+  <polygon points="3500,1900 3560,1860 3620,1900 3620,2020 3560,2060 3500,2020" fill="none" stroke="#7B2CBF" stroke-width="2" opacity="0.25" filter="url(#hexGlow)"/>
+  
+  <!-- Neon lines and connection points -->
+  <line x1="500" y1="600" x2="1000" y2="800" stroke="#3A86FF" stroke-width="1" opacity="0.2"/>
+  <circle cx="500" cy="600" r="8" fill="#3A86FF" opacity="0.5" filter="url(#glow)"/>
+  <circle cx="1000" cy="800" r="6" fill="#7B2CBF" opacity="0.4" filter="url(#glow)"/>
+  
+  <line x1="2000" y1="400" x2="3000" y2="800" stroke="#06FFA5" stroke-width="1" opacity="0.2"/>
+  <circle cx="2000" cy="400" r="8" fill="#06FFA5" opacity="0.5" filter="url(#glow)"/>
+  <circle cx="3000" cy="800" r="6" fill="#3A86FF" opacity="0.4" filter="url(#glow)"/>
+  
+  <line x1="1000" y1="1500" x2="2500" y2="1800" stroke="#7B2CBF" stroke-width="1" opacity="0.2"/>
+  <circle cx="1000" cy="1500" r="8" fill="#7B2CBF" opacity="0.5" filter="url(#glow)"/>
+  <circle cx="2500" cy="1800" r="6" fill="#06FFA5" opacity="0.4" filter="url(#glow)"/>
+  
+  <!-- Centered tech circles with glow -->
+  <circle cx="1920" cy="1080" r="200" fill="none" stroke="url(#bgGradient)" stroke-width="2" opacity="0.2" filter="url(#glow)"/>
+  <circle cx="1920" cy="1080" r="150" fill="none" stroke="#3A86FF" stroke-width="1" opacity="0.3" filter="url(#glow)"/>
+  
+  <!-- Techizat text (optional, can be removed for clean wallpaper) -->
+  <text x="1920" y="2000" font-family="monospace" font-size="80" font-weight="bold" text-anchor="middle" fill="#3A86FF" opacity="0.15" letter-spacing="8">TECHIZAT OS</text>
+  <text x="1920" y="2080" font-family="monospace" font-size="32" text-anchor="middle" fill="#06FFA5" opacity="0.1" letter-spacing="4">Security • AI • Freedom</text>
+</svg>

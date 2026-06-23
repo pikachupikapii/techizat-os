@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Techizat
+
+[X-GNOME-Metatheme]
+GtkTheme=techizat-gtk
+IconTheme=techizat-icons
+CursorTheme=techizat-cursor
+SoundTheme=freedesktop
+
+MetacityTheme=techizat
+
+GtkColorScheme=bg_color:#0a0e27\nfg_color:#e0e0e0\nbase_color:#1a1f3a\ntext_color:#e0e0e0\nselected_bg_color:#3A86FF\nselected_fg_color:#ffffff\ntooltip_bg_color:#1a1f3a\ntooltip_fg_color:#e0e0e0

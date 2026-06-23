@@ -1,0 +1,28 @@
+# Techizat GRUB2 Theme
+
+terminal-font: "Dejavu Sans Mono 16"
+
+# Colors: Blue, Purple, Cyan neon
+color-normal = cyan/black
+color-highlight = white/blue
+
+# Timeouts
+timeout="10"
+
+# Message box background
+message-background-color = "0, 14, 39"
+message-border-color = "58, 134, 255"
+
+# Terminal output styling
+terminal-border-color = "58, 134, 255"
+terminal-box = "--boxy-pattern --border-width=0"
+
+# Boot item highlight
+bootmenu-box = "--boxy-pattern"
+bootmenu-standard-color = "58, 134, 255/10, 14, 39"
+bootmenu-highlight-color = "255, 255, 255/123, 44, 191"
+
+# Progress bar
+progress-bar-style="--style solid"
+progress-bar-color = "58, 134, 255"
+progress-bar-highlight-color = "6, 255, 165"
