@@ -1,0 +1,46 @@
+# Techizat OS - Privacy & Anonymity
+# Gizlilik ve anonimlik araclari
+
+# ===== ANONYMITY =====
+tor
+anonsurf
+torsocks
+obfs4proxy
+
+# ===== VPN & TUNNELING =====
+openvpn
+easy-rsa
+wireguard
+wireguard-tools
+stunnel4
+
+# ===== ENCRYPTION =====
+gnupg
+gnupg2
+gpg-agent
+openssl
+mebedtls-utils
+cryptsetup
+veracrypt
+
+# ===== BROWSERS =====
+firefox
+torbrowser-launcher
+priva-browser
+
+# ===== FIREWALL =====
+firehol
+firehose
+ufw
+iptables
+ip6tables
+
+# ===== SANDBOXING =====
+firejail
+apparmor
+apparmor-utils
+
+# ===== COMMUNICATION =====
+mutt
+thunderbird
+pidgin

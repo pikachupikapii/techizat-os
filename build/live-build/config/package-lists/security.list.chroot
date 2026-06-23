@@ -1,0 +1,86 @@
+# Techizat OS - Pentest & Security Tools
+# Pentest ve guvenlik araclari (kurulu olacak)
+
+# ===== WIRELESS PENETRATION =====
+aircrack-ng
+aireplay-ng
+airodump-ng
+airmon-ng
+airtun-ng
+wifite
+kismet
+netstumbler
+netdiscover
+
+# ===== WEB PENETRATION =====
+sqlmap
+wpscan
+nikto
+dirbuster
+gobuster
+ffuf
+wfuzz
+cewl
+
+# ===== NETWORK SECURITY =====
+nmap
+masscan
+tcpdump
+tshark
+wireshark
+suricata
+setoolkit
+
+# ===== EXPLOITATION =====
+metasploit-framework
+beef
+beef-xss
+
+# ===== PASSWORD TOOLS =====
+john
+john-data
+hashcat
+hydra
+hydra-gtk
+medusa
+pwgen
+
+# ===== REVERSE ENGINEERING =====
+radare2
+gdb
+strace
+binutils
+objdump
+
+# ===== FORENSICS =====
+foremost
+scalpel
+sleuthkit
+autopsy
+photorec
+testdisk
+dd-rescue
+ddrescue
+
+# ===== CRYPTOGRAPHY =====
+gnupg
+gnupg2
+gpg-agent
+openssl
+gnutls-bin
+certbot
+
+# ===== DATABASE TOOLS =====
+mysql-client
+postgresql-client
+sqlite3
+
+# ===== SECURITY AUDIT =====
+lynis
+auditd
+fail2ban
+aide
+
+# ===== MISC SECURITY =====
+torbrowser-launcher
+priva-browser

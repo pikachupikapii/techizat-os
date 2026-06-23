@@ -1,0 +1,113 @@
+# Techizat OS - Base System Packages
+# Temel sistem paketleri
+
+# ===== KERNEL & BOOT =====
+linux-image-amd64
+linux-headers-amd64
+grub-efi-amd64
+grub-efi-amd64-signed
+shim-signed
+memtest86+
+
+# ===== BOOTLOADER =====
+grub-pc
+grub2-common
+syslinux-utils
+mksquashfs
+efibootmgr
+efivar
+
+# ===== DESKTOP ENVIRONMENT =====
+xfce4
+xfce4-terminal
+xfce4-panel
+xfce4-appfinder
+xfce4-power-manager
+xfce4-settings
+xfce4-session
+xfdesktop4
+xfwm4
+
+# ===== DISPLAY MANAGER =====
+lightdm
+lightdm-gtk-greeter
+lightdm-gtk-greeter-settings
+
+# ===== NETWORK =====
+network-manager
+network-manager-gnome
+wifi-firmware
+wifi-firmware-free
+wifi-firmware-nonfree
+wireless-tools
+wpa-supplicant
+dhcp3-client
+net-tools
+resolvconf
+isc-dhcp-client
+
+# ===== SECURITY (INSTALLED) =====
+tor
+anonsurf
+gnupg
+gnupg2
+openssl
+openvpn
+openssh-client
+openssh-server
+sudo
+fail2ban
+auditd
+lynis
+
+# ===== BROWSERS =====
+firefox
+firefox-esr
+chromium
+
+# ===== TOOLS =====
+vim
+nano
+git
+curl
+wget
+python3
+python3-pip
+gcc
+build-essential
+make
+
+# ===== UTILITIES =====
+screen
+tmux
+grep
+sed
+awk
+find
+ls
+cp
+mv
+rm
+chown
+chmod
+sudo
+localc
+whatis
+which
+
+# ===== FONTS & LOCALE =====
+locales
+locales-all
+fonts-dejavu
+fonts-dejavu-core
+fonts-dejavu-extra
+fonts-liberation
+fonts-hack
+fonts-noto
+
+# ===== LIVE SYSTEM =====
+live-boot
+live-config
+live-tools
+squashfs-tools
+overlay-root

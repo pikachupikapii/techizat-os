@@ -1,0 +1,80 @@
+# Techizat OS - Development Tools
+# Yazilim gelistirme araclari
+
+# ===== BUILD TOOLS =====
+build-essential
+autoconf
+automake
+libtool
+pkg-config
+cmake
+make
+
+# ===== COMPILERS =====
+gcc
+g++
+clang
+llvm
+
+# ===== LANGUAGES =====
+python3
+python3-pip
+python3-dev
+node
+npm
+ruby
+ruby-dev
+perl
+php
+php-cli
+golang-go
+rust
+cargo
+
+# ===== VERSION CONTROL =====
+git
+mercurial
+subversion
+
+# ===== EDITORS =====
+vim
+nano
+emacs
+gedit
+kate
+
+# ===== DEBUGGERS =====
+gdb
+valgrind
+strace
+
+# ===== DOCUMENTATION =====
+pandoc
+markdown
+asciidoc
+doxygen
+
+# ===== DATABASE =====
+mysql-client
+postgresql-client
+sqlite3
+
+# ===== VIRTUALIZATION =====
+qemu
+libvirt-daemon
+libvirt-clients
+virt-manager
+virtualbox
+
+# ===== CONTAINERS =====
+docker.io
+docker-compose
+podman
+lxc
+lxd
+
+# ===== UTILITIES =====
+screen
+tmux
+shellcheck
+jq
