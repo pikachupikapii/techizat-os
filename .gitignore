@@ -1,0 +1,31 @@
+# Build outputs
+*.iso
+*.img
+build/output/
+dist/
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Logs
+*.log
+logs/
+
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.pyc
+
+# Temporary files
+*.tmp
+.temp/
