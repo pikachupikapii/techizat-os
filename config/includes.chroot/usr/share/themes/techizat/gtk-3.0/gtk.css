@@ -1,0 +1,244 @@
+/* ============================================
+   TECHIZAT OS - GTK3 TEMA
+   Ana Palet:
+   Amber:    #FFBF00
+   Mor:      #4B0082
+   Lacivert: #080a5c
+   Turkuaz:  #40E0D0
+   Bakır:    #B87333
+   Adaçayı:  #BCB88A
+   Wenge:    #645452
+   Bordo:    #800000
+   ============================================ */
+
+/* === GENEL ARKA PLAN === */
+window, .background {
+    background-color: #080a5c;
+    color: #FFBF00;
+}
+
+/* === BAŞLIK ÇUBUĞU === */
+headerbar, .titlebar {
+    background: linear-gradient(135deg, #080a5c 0%, #4B0082 100%);
+    color: #FFBF00;
+    border-bottom: 2px solid #FFBF00;
+    box-shadow: 0 2px 8px rgba(255, 191, 0, 0.3);
+}
+
+headerbar .title {
+    color: #FFBF00;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 191, 0, 0.5);
+}
+
+headerbar button {
+    background: transparent;
+    color: #FFBF00;
+    border: 1px solid rgba(255, 191, 0, 0.3);
+    border-radius: 4px;
+}
+
+headerbar button:hover {
+    background: rgba(255, 191, 0, 0.15);
+    border-color: #FFBF00;
+    box-shadow: 0 0 8px rgba(255, 191, 0, 0.4);
+}
+
+/* === BUTONLAR === */
+button {
+    background: linear-gradient(135deg, #4B0082, #080a5c);
+    color: #FFBF00;
+    border: 1px solid #FFBF00;
+    border-radius: 6px;
+    padding: 6px 14px;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #40E0D0, #4B0082);
+    color: #080a5c;
+    border-color: #40E0D0;
+    box-shadow: 0 0 12px rgba(64, 224, 208, 0.6);
+}
+
+button:active {
+    background: #FFBF00;
+    color: #080a5c;
+    box-shadow: 0 0 16px rgba(255, 191, 0, 0.8);
+}
+
+/* === MENÜ === */
+menu, menubar, .menu {
+    background-color: #0d1068;
+    color: #FFBF00;
+    border: 1px solid #4B0082;
+    box-shadow: 0 4px 16px rgba(75, 0, 130, 0.5);
+}
+
+menubar > menuitem:hover,
+menu > menuitem:hover {
+    background: linear-gradient(90deg, #4B0082, #080a5c);
+    color: #40E0D0;
+    box-shadow: inset 3px 0 0 #FFBF00;
+}
+
+menuitem accelerator {
+    color: #BCB88A;
+}
+
+menuitem:disabled {
+    color: #645452;
+}
+
+/* === GİRİŞ ALANLARI === */
+entry, spinbutton {
+    background-color: #0d1068;
+    color: #FFBF00;
+    border: 1px solid #4B0082;
+    border-radius: 4px;
+    padding: 6px;
+    caret-color: #40E0D0;
+}
+
+entry:focus, spinbutton:focus {
+    border-color: #40E0D0;
+    box-shadow: 0 0 0 2px rgba(64, 224, 208, 0.3);
+    outline: none;
+}
+
+entry:selected {
+    background-color: #4B0082;
+    color: #FFBF00;
+}
+
+/* === KAYDIRMA ÇUBUĞU === */
+scrollbar {
+    background-color: #080a5c;
+    border: none;
+}
+
+scrollbar slider {
+    background-color: #4B0082;
+    border-radius: 10px;
+    min-width: 8px;
+    min-height: 8px;
+}
+
+scrollbar slider:hover {
+    background-color: #FFBF00;
+    box-shadow: 0 0 6px rgba(255, 191, 0, 0.5);
+}
+
+/* === LİSTE VE TABLO === */
+treeview, listview {
+    background-color: #080a5c;
+    color: #BCB88A;
+}
+
+treeview:selected, listview:selected {
+    background-color: #4B0082;
+    color: #FFBF00;
+    box-shadow: inset 3px 0 0 #40E0D0;
+}
+
+treeview:hover, listview:hover {
+    background-color: rgba(75, 0, 130, 0.3);
+}
+
+treeview header button {
+    background: #0d1068;
+    color: #40E0D0;
+    border-bottom: 2px solid #FFBF00;
+    font-weight: bold;
+}
+
+/* === ARAÇ ÇUBUĞU === */
+toolbar {
+    background: linear-gradient(180deg, #0d1068, #080a5c);
+    border-bottom: 1px solid #4B0082;
+    padding: 2px;
+}
+
+/* === SEKMELER === */
+notebook > header {
+    background-color: #080a5c;
+    border-bottom: 2px solid #FFBF00;
+}
+
+notebook > header > tabs > tab {
+    background-color: #0d1068;
+    color: #BCB88A;
+    border: 1px solid #4B0082;
+    padding: 6px 16px;
+    border-radius: 4px 4px 0 0;
+}
+
+notebook > header > tabs > tab:checked {
+    background: linear-gradient(180deg, #4B0082, #080a5c);
+    color: #FFBF00;
+    border-bottom-color: transparent;
+    box-shadow: 0 -2px 0 #FFBF00;
+}
+
+notebook > header > tabs > tab:hover {
+    color: #40E0D0;
+    border-color: #40E0D0;
+}
+
+/* === CHECKBOX VE RADIO === */
+checkbutton check, radiobutton radio {
+    background-color: #080a5c;
+    border: 2px solid #4B0082;
+    color: #FFBF00;
+}
+
+checkbutton check:checked, radiobutton radio:checked {
+    background-color: #FFBF00;
+    border-color: #FFBF00;
+    color: #080a5c;
+    box-shadow: 0 0 8px rgba(255, 191, 0, 0.6);
+}
+
+/* === TOOLTIP === */
+tooltip {
+    background-color: #4B0082;
+    color: #FFBF00;
+    border: 1px solid #FFBF00;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(255, 191, 0, 0.3);
+}
+
+/* === İLERLEME ÇUBUĞU === */
+progressbar trough {
+    background-color: #0d1068;
+    border: 1px solid #4B0082;
+    border-radius: 10px;
+}
+
+progressbar progress {
+    background: linear-gradient(90deg, #4B0082, #40E0D0);
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(64, 224, 208, 0.5);
+}
+
+/* === AYIRICI === */
+separator {
+    background-color: #4B0082;
+    min-height: 1px;
+    min-width: 1px;
+}
+
+/* === DURUM ÇUBUĞU === */
+statusbar {
+    background-color: #0d1068;
+    color: #BCB88A;
+    border-top: 1px solid #4B0082;
+    font-size: 0.85em;
+}
+
+/* === PANEL / TASKBAR (XFCE) === */
+PanelWidget, XfcePanelWindow {
+    background: linear-gradient(180deg, #080a5c, #0d1068);
+    border-top: 2px solid #FFBF00;
+    color: #FFBF00;
+}

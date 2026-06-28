@@ -1,0 +1,25 @@
+#!/bin/bash
+# ============================================
+# TECHIZAT OS - DİL AYARI HOOK'U
+# Türkçe ve İngilizce çoklu dil desteği
+# ============================================
+
+set -e
+
+echo "[*] Dil ayarları yapılıyor..."
+
+# Locale oluştur
+locale-gen tr_TR.UTF-8
+locale-gen en_US.UTF-8
+update-locale LANG=tr_TR.UTF-8
+
+# Klavye düzeni (Türkçe Q)
+cat > /etc/default/keyboard << EOF
+XKBMODEL="pc105"
+XKBLAYOUT="tr,us"
+XKBVARIANT=","
+XKBOPTIONS="grp:alt_shift_toggle"
+BACKSPACE="guess"
+EOF
+
+echo "[✓] Dil ayarları tamamlandı."

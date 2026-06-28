@@ -1,0 +1,39 @@
+#!/bin/bash
+# ============================================
+# STRIX - NyxOS Terminal Baykuş
+# Komut durumuna göre yüz ifadesi değişir
+# ============================================
+
+# Durum kodunu al
+EXIT_CODE=$1
+IS_ROOT=$2
+IS_WAITING=$3
+
+# Renkler
+AMBER='\033[38;2;255;191;0m'
+PURPLE='\033[38;2;75;0;130m'
+CYAN='\033[38;2;64;224;208m'
+RESET='\033[0m'
+
+# ============================================
+# YÜZ İFADELERİ (3. fotoğraftaki duygular)
+# ============================================
+
+strix_mutlu()    { echo -e "${AMBER}(^ᴗ^)🦉${RESET}"; }   # Doğru komut
+strix_normal()   { echo -e "${AMBER}(•ᴗ•)🦉${RESET}"; }   # Normal
+strix_zeki()     { echo -e "${CYAN}(^_^)🤓🦉${RESET}"; }  # Root modu
+strix_uykulu()   { echo -e "${PURPLE}(-_-)💤🦉${RESET}"; } # Beklerken
+strix_saskin()   { echo -e "${AMBER}(o_O)❗🦉${RESET}"; }  # Hata
+
+# Duruma göre yüz seç
+if [ "$IS_WAITING" = "1" ]; then
+    strix_uykulu
+elif [ "$IS_ROOT" = "1" ]; then
+    strix_zeki
+elif [ "$EXIT_CODE" = "0" ]; then
+    strix_mutlu
+elif [ "$EXIT_CODE" != "" ]; then
+    strix_saskin
+else
+    strix_normal
+fi

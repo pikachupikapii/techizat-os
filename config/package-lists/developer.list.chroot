@@ -1,0 +1,39 @@
+# Versiyon Kontrol
+git
+git-flow
+gitk
+
+# Editörler
+vim
+nano
+code
+
+# Programlama Dilleri
+python3
+nodejs
+npm
+golang
+rustc
+cargo
+gcc
+g++
+make
+
+# Veritabanı
+sqlite3
+postgresql-client
+mysql-client
+
+# Konteyner
+docker.io
+docker-compose
+
+# Terminal Araçları
+tmux
+screen
+zsh
+oh-my-zsh
+
+# API Geliştirme
+httpie
+postman

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Techizat Hoş Geldin
+Name[tr]=Techizat Hoş Geldin
+Comment=Techizat OS karşılama ekranı
+Exec=techizat-welcome
+Icon=techizat-logo
+Terminal=false
+Categories=System;
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=3

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Ağ Yöneticisi
+Exec=nm-applet
+Icon=network-wireless
+Terminal=false
+Categories=GNOME;GTK;System;Utility;
+X-GNOME-Autostart-enabled=true
+NoDisplay=false

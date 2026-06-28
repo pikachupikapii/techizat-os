@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=XFCE Panel
+Exec=xfce4-panel
+Terminal=false
+X-GNOME-Autostart-enabled=true
+NoDisplay=true

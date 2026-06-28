@@ -1,0 +1,35 @@
+#!/bin/bash
+# ============================================
+# TECHIZAT OS - OLLAMA KURULUM HOOK'U
+# Yerel AI modeli için Ollama'yı kurar
+# ============================================
+
+set -e
+
+echo "[*] Ollama kuruluyor..."
+
+# Ollama'yı indir ve kur
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Servis dosyası oluştur
+cat > /etc/systemd/system/ollama.service << EOF
+[Unit]
+Description=Ollama AI Servisi
+After=network-online.target
+
+[Service]
+ExecStart=/usr/local/bin/ollama serve
+User=ollama
+Group=ollama
+Restart=always
+RestartSec=3
+Environment="HOME=/usr/share/ollama"
+
+[Install]
+WantedBy=default.target
+EOF
+
+# Servis aktif et
+systemctl enable ollama 2>/dev/null || true
+
+echo "[✓] Ollama kuruldu."

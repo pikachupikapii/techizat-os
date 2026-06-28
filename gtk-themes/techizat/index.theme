@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Techizat
+Comment=Techizat OS resmi GTK teması - Amber & Mor
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Techizat
+MetacityTheme=Techizat
+IconTheme=techizat-icons
+CursorTheme=default
+ButtonLayout=close,minimize,maximize:

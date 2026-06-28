@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Strix Terminal İkon
+Comment=NyxOS terminal baykuş ikonu
+Exec=xfce4-terminal --title="NyxOS Terminal"
+Icon=/usr/share/pixmaps/strix-terminal-icon.png
+Terminal=false
+Categories=System;
+X-GNOME-Autostart-enabled=true
+NoDisplay=true

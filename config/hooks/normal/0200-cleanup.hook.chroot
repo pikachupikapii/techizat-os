@@ -1,0 +1,34 @@
+#!/bin/bash
+# ============================================
+# TECHIZAT OS - TEMİZLİK HOOK'U
+# Gereksiz dosyaları siler, ISO boyutunu küçültür
+# ============================================
+
+set -e
+
+echo "[*] Sistem temizleniyor..."
+
+# APT cache temizle
+apt-get clean
+apt-get autoremove -y
+
+# Geçici dosyaları temizle
+rm -rf /tmp/*
+rm -rf /var/tmp/*
+
+# Log dosyalarını temizle
+find /var/log -type f -name "*.log" -delete
+find /var/log -type f -name "*.gz" -delete
+
+# Thumbnail cache temizle
+rm -rf /root/.cache/thumbnails/*
+rm -rf /home/*/.cache/thumbnails/*
+
+# Python cache temizle
+find / -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
+find / -name "*.pyc" -delete 2>/dev/null || true
+
+# Paket listelerini temizle (ISO'da gereksiz)
+rm -rf /var/lib/apt/lists/*
+
+echo "[✓] Temizlik tamamlandı."

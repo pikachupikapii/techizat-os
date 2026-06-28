@@ -1,0 +1,11 @@
+PRETTY_NAME="NyxOS 1.0"
+NAME="NyxOS"
+VERSION_ID="1.0"
+VERSION="1.0 (Baykuş)"
+VERSION_CODENAME=baykus
+ID=nyxos
+ID_LIKE=debian
+HOME_URL="https://github.com/pikachupikapii/techizat-os"
+SUPPORT_URL="https://github.com/pikachupikapii/techizat-os/issues"
+BUG_REPORT_URL="https://github.com/pikachupikapii/techizat-os/issues"
+LOGO=nyxos-logo

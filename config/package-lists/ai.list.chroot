@@ -1,0 +1,33 @@
+# Python
+python3
+python3-pip
+python3-venv
+python3-dev
+python3-setuptools
+python3-wheel
+
+# Jupyter
+jupyter-notebook
+jupyter-core
+
+# Makine Öğrenmesi
+python3-numpy
+python3-pandas
+python3-matplotlib
+python3-sklearn
+python3-scipy
+
+# Geliştirici Araçlar
+build-essential
+cmake
+pkg-config
+
+# Ollama (yerel LLM)
+# Not: Ollama kurulumu hook ile yapılacak
+
+# Docker (AI modelleri için)
+docker.io
+docker-compose
+
+# GPU Desteği (opsiyonel)
+python3-cuda

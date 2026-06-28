@@ -1,0 +1,26 @@
+#!/bin/bash
+# ============================================
+# TECHIZAT OS - BRAVE TARAYICI KURULUM HOOK'U
+# ============================================
+
+set -e
+
+echo "[*] Brave tarayıcı kuruluyor..."
+
+# Gerekli araçlar
+apt-get install -y curl gnupg apt-transport-https
+
+# Brave GPG anahtarı ekle
+curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg \
+    https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+
+# Brave deposu ekle
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] \
+    https://brave-browser-apt-release.s3.brave.com/ stable main" \
+    > /etc/apt/sources.list.d/brave-browser-release.list
+
+# Güncelle ve kur
+apt-get update
+apt-get install -y brave-browser
+
+echo "[✓] Brave tarayıcı kuruldu."

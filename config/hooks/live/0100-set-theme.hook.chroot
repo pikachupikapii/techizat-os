@@ -1,0 +1,93 @@
+#!/bin/bash
+# ============================================
+# TECHIZAT OS - TEMA HOOK'U
+# Build sırasında temayı aktif eder
+# ============================================
+
+set -e
+
+echo "[*] Techizat teması uygulanıyor..."
+
+# GTK temasını varsayılan yap
+mkdir -p /etc/gtk-3.0
+cat > /etc/gtk-3.0/settings.ini << EOF
+[Settings]
+gtk-theme-name=Techizat
+gtk-icon-theme-name=techizat-icons
+gtk-font-name=DejaVu Sans 11
+gtk-cursor-theme-name=default
+gtk-cursor-theme-size=24
+gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
+gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+gtk-button-images=1
+gtk-menu-images=1
+gtk-enable-event-sounds=1
+gtk-enable-input-feedback-sounds=1
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle=hintslight
+gtk-xft-rgba=rgb
+EOF
+
+# GTK2 için de uygula
+mkdir -p /etc/gtk-2.0
+cat > /etc/gtk-2.0/gtkrc << EOF
+gtk-theme-name="Techizat"
+gtk-icon-theme-name="techizat-icons"
+gtk-font-name="DejaVu Sans 11"
+gtk-cursor-theme-name="default"
+gtk-cursor-theme-size=24
+gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
+gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+gtk-button-images=1
+gtk-menu-images=1
+EOF
+
+# XFCE varsayılan tema ayarları
+mkdir -p /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml
+
+cat > /etc/skel/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml << EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<channel name="xsettings" version="1.0">
+  <property name="Net" type="empty">
+    <property name="ThemeName" type="string" value="Techizat"/>
+    <property name="IconThemeName" type="string" value="techizat-icons"/>
+    <property name="DoubleClickTime" type="empty"/>
+    <property name="DoubleClickDistance" type="empty"/>
+    <property name="DndDragThreshold" type="empty"/>
+    <property name="CursorBlink" type="empty"/>
+    <property name="CursorBlinkTime" type="empty"/>
+    <property name="SoundThemeName" type="empty"/>
+    <property name="EnableEventSounds" type="empty"/>
+    <property name="EnableInputFeedbackSounds" type="empty"/>
+  </property>
+  <property name="Xft" type="empty">
+    <property name="Antialias" type="int" value="1"/>
+    <property name="Hinting" type="int" value="1"/>
+    <property name="HintStyle" type="string" value="hintslight"/>
+    <property name="RGBA" type="string" value="rgb"/>
+    <property name="DPI" type="int" value="96"/>
+  </property>
+  <property name="Gtk" type="empty">
+    <property name="FontName" type="string" value="DejaVu Sans 11"/>
+    <property name="MonospaceFontName" type="string" value="Fira Code 10"/>
+    <property name="IconSizes" type="empty"/>
+    <property name="CursorThemeName" type="string" value="default"/>
+    <property name="CursorThemeSize" type="int" value="24"/>
+    <property name="ToolbarStyle" type="string" value="Both"/>
+    <property name="ToolbarIconSize" type="string" value="Large"/>
+    <property name="ButtonImages" type="bool" value="true"/>
+    <property name="MenuImages" type="bool" value="true"/>
+    <property name="ColorScheme" type="string" value=""/>
+    <property name="IMPreeditStyle" type="string" value=""/>
+    <property name="IMStatusStyle" type="string" value=""/>
+    <property name="IMModule" type="string" value=""/>
+  </property>
+</channel>
+EOF
+
+echo "[✓] Tema başarıyla uygulandı."
+
+# Strix'i çalıştırılabilir yap
+chmod +x /usr/local/bin/strix
+echo "[✓] Strix terminal baykuşu aktif edildi."

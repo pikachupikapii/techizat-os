@@ -1,0 +1,49 @@
+# XFCE Masaüstü
+xfce4
+xfce4-goodies
+xfce4-terminal
+xfce4-taskmanager
+xfce4-screenshooter
+xfce4-notifyd
+xfce4-power-manager
+xfce4-clipman-plugin
+xfce4-whiskermenu-plugin
+
+# Giriş Ekranı
+lightdm
+lightdm-gtk-greeter
+lightdm-gtk-greeter-settings
+
+# Dosya Yöneticisi
+thunar
+thunar-archive-plugin
+thunar-volman
+gvfs
+gvfs-backends
+
+# Tarayıcılar
+firefox-esr
+chromium
+
+# Temel Uygulamalar
+firefox-esr
+vlc
+mousepad
+ristretto
+evince
+file-roller
+galculator
+gedit
+
+# Ses/Video
+pulseaudio
+pavucontrol
+alsa-utils
+
+# Font ve Görünüm
+fonts-noto
+fonts-noto-cjk
+fonts-firacode
+papirus-icon-theme
+gtk2-engines-murrine
+gtk2-engines-pixbuf

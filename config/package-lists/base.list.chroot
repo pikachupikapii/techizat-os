@@ -1,0 +1,24 @@
+# Temel Sistem Araçları
+curl
+wget
+git
+htop
+neofetch
+unzip
+zip
+p7zip-full
+tar
+nano
+vim
+bash-completion
+net-tools
+dnsutils
+tree
+lsof
+ufw
+sudo
+apt-transport-https
+ca-certificates
+gnupg
+software-properties-common
+locales
