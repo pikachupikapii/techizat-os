@@ -12,9 +12,15 @@ echo ""
 
 cd "$(dirname "$0")"
 
-# Önceki build temizle
-echo "[*] Önceki build temizleniyor..."
-sudo lb clean
+# Onceki build temizle
+echo "[*] Onceki build temizleniyor..."
+sudo lb clean --purge
+
+# Config olustur (mimari, bootloader, kernel, mirror ayarlari)
+# BU ADIM DAHA ONCE HIC YOKTU - vmlinuz hatasinin asil sebebi buydu.
+echo "[*] live-build config olusturuluyor..."
+chmod +x auto/config
+sudo lb config
 
 # Build başlat
 echo "[*] ISO oluşturuluyor..."
