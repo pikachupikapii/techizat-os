@@ -1,3 +1,10 @@
+# Live sistem icin ZORUNLU paketler
+# (Bunlar olmadan /live/vmlinuz ve /live/initrd.img ISO'ya HIC girmez)
+linux-image-amd64
+live-boot
+live-config
+live-tools
+
 # Temel Sistem Araçları
 curl
 wget
