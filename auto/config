@@ -25,7 +25,7 @@ echo "[*] Tespit edilen dagitim kod adi: $CODENAME"
 
 lb config noauto \
 	--distribution "$CODENAME" \
-	--parent-distribution "trixie" \
+	--parent-distribution "$CODENAME" \
 	--archive-areas "main contrib non-free non-free-firmware" \
 	--parent-archive-areas "main contrib non-free non-free-firmware" \
 	--mirror-bootstrap "https://deb.parrot.sh/parrot" \
