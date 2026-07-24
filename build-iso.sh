@@ -5,7 +5,6 @@
 # ============================================
 
 set -e
-set -o pipefail
 
 echo "[*] NyxOS ISO build başlıyor..."
 echo "[*] Bu işlem 20-60 dakika sürebilir."
