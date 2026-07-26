@@ -1,43 +1,25 @@
 #!/bin/sh
-# ============================================
-# TECHIZAT OS - live-build config script
-# Bu dosya "lb config" u dogru parametrelerle calistirir.
-# build-iso.sh bunu otomatik cagirir, elle calistirmana gerek yok.
-#
-# Onceden bu dosya HIC YOKTU -> lb config hic calismiyordu ->
-# chroot icine kernel / live-boot / live-config hic kurulmuyordu ->
-# ISO icinde /live/vmlinuz olusmuyordu -> GRUB "vmlinuz not found" hatasi.
-# ============================================
-
 set -e
 
-# Parrot rolling bir dagitim, kod adi zamanla degisir (ornegin "lory").
-# Build makinesinin KENDI kod adini kullanmak en guvenlisi.
-CODENAME="$(lsb_release -cs 2>/dev/null || true)"
-if [ -z "$CODENAME" ]; then
-	CODENAME="$(. /etc/os-release 2>/dev/null; echo "$VERSION_CODENAME")"
-fi
-if [ -z "$CODENAME" ]; then
-	echo "[!] Parrot kod adi tespit edilemedi, elle CODENAME degiskenini ayarla." >&2
-	exit 1
-fi
-echo "[*] Tespit edilen dagitim kod adi: $CODENAME"
+echo "[*] Kali-rolling icin config olusturuluyor..."
 
 lb config noauto \
-	--distribution "$CODENAME" \
-	--parent-distribution "$CODENAME" \
+	--iso-volume "TechizatOS" \
+	--distribution "kali-rolling" \
+	--parent-distribution "kali-rolling" \
 	--archive-areas "main contrib non-free non-free-firmware" \
 	--parent-archive-areas "main contrib non-free non-free-firmware" \
-	--mirror-bootstrap "https://deb.parrot.sh/parrot" \
-	--mirror-binary "https://deb.parrot.sh/parrot" \
-	--mirror-chroot "https://deb.parrot.sh/parrot" \
-	--mirror-chroot-security "https://deb.parrot.sh/parrot" \
-	--mirror-binary-security "https://deb.parrot.sh/parrot" \
+	--mirror-bootstrap "https://kali.download/kali" \
+	--parent-mirror-bootstrap "https://kali.download/kali" \
+	--mirror-binary "https://kali.download/kali" \
+	--mirror-chroot "https://kali.download/kali" \
+	--mirror-chroot-security "https://kali.download/kali" \
+	--mirror-binary-security "https://kali.download/kali" \
 	--architectures amd64 \
 	--binary-images iso-hybrid \
-	--bootloaders grub-pc \
+	--bootloaders "grub-pc grub-efi" \
 	--debian-installer none \
 	--linux-packages "linux-image" \
-	--updates true \
-	--security true \
+	--updates false \
+	--security false \
 	"${@}"
