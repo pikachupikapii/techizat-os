@@ -6,7 +6,6 @@ gitk
 # Editörler
 vim
 nano
-code
 
 # Programlama Dilleri
 python3
@@ -22,7 +21,7 @@ make
 # Veritabanı
 sqlite3
 postgresql-client
-mysql-client
+mariadb-client
 
 # Konteyner
 docker.io
@@ -32,8 +31,6 @@ docker-compose
 tmux
 screen
 zsh
-oh-my-zsh
 
 # API Geliştirme
 httpie
-postman
