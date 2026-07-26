@@ -30,4 +30,3 @@ docker.io
 docker-compose
 
 # GPU Desteği (opsiyonel)
-python3-cuda
