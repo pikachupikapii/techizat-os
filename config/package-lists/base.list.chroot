@@ -10,7 +10,7 @@ curl
 wget
 git
 htop
-neofetch
+fastfetch
 unzip
 zip
 p7zip-full
