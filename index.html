@@ -120,10 +120,6 @@
     z-index: 0;
     pointer-events: none;
   }
-
-  .owl-eyes-container {
-    position: absolute; top: 120px; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 50px; z-index: 1; pointer-events: none;
     /* Sevimli Baykuş Başı ve Kulak Detayları */
   .owl-head-container {
     position: absolute; top: 90px; left: 50%; transform: translateX(-50%);
@@ -145,11 +141,7 @@
     border-right: 6px solid transparent;
     border-top: 10px solid var(--owl-amber);
     filter: drop-shadow(0 0 6px rgba(255,191,0,0.5));
-  }
-  .owl-eyes-container {
-    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 36px; z-index: 1; pointer-events: none;
-  }
+  
   }
   .owl-eye {
     width: 48px; height: 48px; border-radius: 50%;
@@ -287,12 +279,13 @@
 
 .cute-owl {
   position:absolute;
-  top:70px;
+  top:80px;
   left:50%;
   transform:translateX(-50%);
   width:220px;
   height:220px;
-  z-index:3;
+  z-index:5;
+  pointer-events:none;
 }
 
 
@@ -371,12 +364,12 @@
 }
 
 
-.cute-eye:first-child {
-  left:28px;
+.left-eye {
+  left:30px;
 }
 
-.cute-eye:nth-child(2){
-  right:28px;
+.right-eye {
+  right:30px;
 }
 
 
@@ -542,12 +535,11 @@
     <div class="owl-ear owl-ear-right"></div>
 
     <div class="owl-face">
+      <div class="owl-eye cute-eye left-eye">
+      <div class="owl-pupil" id="pupil-left"></div>
+     </div>
 
-      <div class="owl-eye cute-eye">
-       <div class="owl-pupil" id="pupil-left"></div>
-      </div>
-
-      <div class="owl-eye cute-eye">
+       <div class="owl-eye cute-eye right-eye">
        <div class="owl-pupil" id="pupil-right"></div>
       </div>
 
