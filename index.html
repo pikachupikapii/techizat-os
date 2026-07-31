@@ -120,20 +120,7 @@
     z-index: 0;
     pointer-events: none;
   }
-    /* Sevimli Baykuş Başı ve Kulak Detayları */
-  .owl-head-container {
-    position: absolute; top: 90px; left: 50%; transform: translateX(-50%);
-    width: 140px; height: 70px; z-index: 1; pointer-events: none;
-  }
-  .owl-horns {
-    position: absolute; width: 100%; top: -14px; display: flex; justify-content: space-between; padding: 0 10px;
-  }
-  .horn {
-    width: 0; height: 0; 
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    border-bottom: 20px solid rgba(255, 191, 0, 0.4);
-  }
+  
   .owl-beak {
     position: absolute; top: 48px; left: 50%; transform: translateX(-50%);
     width: 0; height: 0;
@@ -142,13 +129,6 @@
     border-top: 10px solid var(--owl-amber);
     filter: drop-shadow(0 0 6px rgba(255,191,0,0.5));
   
-  }
-  .owl-eye {
-    width: 48px; height: 48px; border-radius: 50%;
-    background: radial-gradient(circle, var(--owl-amber) 0%, #d97706 70%, #78350f 100%);
-    box-shadow: 0 0 25px var(--owl-amber);
-    position: relative;
-    animation: blink 7s infinite;
   }
   .owl-pupil {
     position: absolute; width: 14px; height: 14px; background: #02040a; border-radius: 50%;
@@ -265,76 +245,79 @@
   .dl-foot { font-family: 'JetBrains Mono'; font-size: 0.76rem; color: #64748b; }
   .dl-foot code { color: #cbd5e1; }
 
-  footer { padding: 50px 0; text-align: center; font-size: 0.85rem; color: #64748b; border-top: 1px solid var(--border-color); }
-  footer a:hover { color: var(--owl-amber); }
+  footer { 
+  padding: 50px 0; 
+  text-align: center; 
+  font-size: 0.85rem; 
+  color: #64748b; 
+  border-top: 1px solid var(--border-color); 
+}
 
-  @media (max-width: 860px) {
-    .fgrid, .shots { grid-template-columns: 1fr; }
-    .navlinks { display: none; }
-    .navtoggle { display: block; }
-    .owl-eyes-container { display: none; }
-    /* ==========================
+footer a:hover { 
+  color: var(--owl-amber); 
+}
+  /* ==========================
    SEVİMLİ BAYKUŞ TASARIMI
 ========================== */
 
 .cute-owl {
-  position:absolute;
-  top:80px;
-  left:50%;
-  transform:translateX(-50%);
-  width:220px;
-  height:220px;
-  z-index:5;
-  pointer-events:none;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 220px;
+  z-index: 10;
+  pointer-events: none;
 }
 
 
-/* Kulak püskülleri */
+/* Kulaklar */
 
 .owl-ear {
-  position:absolute;
-  top:0;
-  width:0;
-  height:0;
-  border-left:35px solid transparent;
-  border-right:35px solid transparent;
-  border-bottom:70px solid #151a2c;
-  filter:drop-shadow(0 0 15px rgba(255,191,0,.3));
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 65px solid #151a2c;
+  filter: drop-shadow(0 0 15px rgba(255,191,0,.3));
 }
 
 .owl-ear-left {
-  left:15px;
-  transform:rotate(-20deg);
+  left: 15px;
+  transform: rotate(-20deg);
 }
 
 .owl-ear-right {
-  right:15px;
-  transform:rotate(20deg);
+  right: 15px;
+  transform: rotate(20deg);
 }
 
 
 /* Baykuş kafası */
 
 .owl-face {
-  position:absolute;
-  top:35px;
-  left:50%;
-  transform:translateX(-50%);
-  width:180px;
-  height:130px;
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 180px;
+  height: 135px;
 
   background:
-  radial-gradient(circle at 50% 60%,
-  #22283d,
-  #090d18);
+  radial-gradient(circle at 50% 40%,
+  #374151,
+  #090d18 75%);
 
-  border-radius:
-  50% 50% 45% 45%;
+  border-radius: 50% 50% 45% 45%;
 
-  border:2px solid rgba(255,191,0,.25);
+  border: 2px solid rgba(255,191,0,.25);
 
   box-shadow:
-  0 0 50px rgba(255,191,0,.15),
+  0 0 50px rgba(255,191,0,.18),
   inset 0 0 30px #000;
 }
 
@@ -343,55 +326,57 @@
 
 .cute-eye {
 
-  position:absolute;
+  position: absolute;
 
-  top:35px;
+  top: 35px;
 
-  width:55px;
-  height:55px;
+  width: 55px;
+  height: 55px;
 
   background:
   radial-gradient(circle,
-  #fff7cc,
-  #ffbf00 60%,
-  #d97706);
+  #fff7cc 0%,
+  #ffbf00 55%,
+  #d97706 100%);
 
-  border-radius:50%;
+  border-radius: 50%;
 
   box-shadow:
   0 0 25px #ffbf00;
 
+  animation: blink 7s infinite;
 }
 
 
 .left-eye {
-  left:30px;
+  left: 32px;
 }
+
 
 .right-eye {
-  right:30px;
+  right: 32px;
 }
 
 
-/* göz bebeği */
+/* Göz bebeği */
 
 .owl-pupil {
 
- position:absolute;
+  position: absolute;
 
- width:18px;
- height:18px;
+  width: 18px;
+  height: 18px;
 
- background:#02040a;
+  background: #02040a;
 
- border-radius:50%;
+  border-radius: 50%;
 
- top:50%;
- left:50%;
+  top: 50%;
+  left: 50%;
 
- transform:
- translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 
+  transition: transform .05s ease-out;
 }
 
 
@@ -399,20 +384,20 @@
 
 .owl-beak {
 
- position:absolute;
+  position: absolute;
 
- left:50%;
- bottom:30px;
+  left: 50%;
+  bottom: 28px;
 
- transform:translateX(-50%);
+  transform: translateX(-50%);
 
- width:0;
- height:0;
+  width: 0;
+  height: 0;
 
- border-left:12px solid transparent;
- border-right:12px solid transparent;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
 
- border-top:20px solid #ffbf00;
+  border-top: 20px solid var(--owl-amber);
 
 }
 
@@ -421,73 +406,80 @@
 
 .owl-body {
 
- position:absolute;
+  position: absolute;
 
- bottom:0;
+  bottom: 0;
 
- left:50%;
+  left: 50%;
 
- transform:translateX(-50%);
+  transform: translateX(-50%);
 
- width:140px;
- height:80px;
+  width: 140px;
+  height: 80px;
 
- background:
- radial-gradient(circle at 50% 0,
- #303952,
- #090d18);
+  background:
+  radial-gradient(circle at 50% 0,
+  #303952,
+  #090d18);
 
- border-radius:
- 50% 50% 20% 20%;
-
- z-index:-1;
+  border-radius:
+  50% 50% 20% 20%;
 
 }
 
 
-/* Tatlı yanaklar */
+/* Yanaklar */
 
-.owl-face:before,
-.owl-face:after {
+.owl-face::before,
+.owl-face::after {
 
- content:"";
+  content:"";
 
- position:absolute;
+  position:absolute;
 
- bottom:35px;
+  bottom:35px;
 
- width:25px;
- height:15px;
+  width:25px;
+  height:15px;
 
- background:#fb7185;
+  background:#fb7185;
 
- opacity:.35;
+  opacity:.35;
 
- border-radius:50%;
+  border-radius:50%;
 
+}
+
+
+.owl-face::before {
+  left:15px;
 }
 
 
-.owl-face:before {
- left:15px;
+.owl-face::after {
+  right:15px;
 }
 
+ @media (max-width: 860px) {
 
-.owl-face:after {
- right:15px;
-}
-
-
-/* Mobil */
-
-@media(max-width:860px){
-
- .cute-owl{
- display:none;
- }
-
-}
+  .fgrid, 
+  .shots {
+    grid-template-columns:1fr;
   }
+
+  .navlinks {
+    display:none;
+  }
+
+  .navtoggle {
+    display:block;
+  }
+
+  .cute-owl {
+    display:none;
+  }
+
+}
 </style>
 </head>
 <body>
@@ -500,7 +492,6 @@
 <nav>
   <div class="wrap">
     <div class="brand">
-      <div class="brand">
   <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <!-- Baykuş Kulakları / Silüeti -->
     <path d="M7 11L12 5L16 11L20 5L25 11C27 15 27 21 24 25C21 28 11 28 8 25C5 21 5 15 7 11Z" fill="#0b0f19" stroke="#FFBF00" stroke-width="1.5" stroke-linejoin="round"/>
@@ -526,7 +517,6 @@
 </nav>
 
 <header class="hero">
-  <!-- Ay Halosu ve Fareyi Takip Eden Baykuş Gözleri -->
   <div class="moon-halo"></div>
   <!-- Sevimli Baykuş Baş ve Göz Yapısı -->
   <!-- Sevimli Baykuş -->
@@ -690,7 +680,10 @@
       const eyeCenterY = eye.rect.top + eye.rect.height / 2;
       
       const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
-      const distance = Math.min(6, Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / 10);
+      const distance = Math.min(5, Math.hypot(
+      e.clientX - eyeCenterX,
+      e.clientY - eyeCenterY
+      ) / 20);
       
       const x = Math.cos(angle) * distance;
       const y = Math.sin(angle) * distance;
