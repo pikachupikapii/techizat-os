@@ -281,6 +281,219 @@
     .navlinks { display: none; }
     .navtoggle { display: block; }
     .owl-eyes-container { display: none; }
+    /* ==========================
+   SEVİMLİ BAYKUŞ TASARIMI
+========================== */
+
+.cute-owl {
+  position:absolute;
+  top:70px;
+  left:50%;
+  transform:translateX(-50%);
+  width:220px;
+  height:220px;
+  z-index:3;
+}
+
+
+/* Kulak püskülleri */
+
+.owl-ear {
+  position:absolute;
+  top:0;
+  width:0;
+  height:0;
+  border-left:35px solid transparent;
+  border-right:35px solid transparent;
+  border-bottom:70px solid #151a2c;
+  filter:drop-shadow(0 0 15px rgba(255,191,0,.3));
+}
+
+.owl-ear-left {
+  left:15px;
+  transform:rotate(-20deg);
+}
+
+.owl-ear-right {
+  right:15px;
+  transform:rotate(20deg);
+}
+
+
+/* Baykuş kafası */
+
+.owl-face {
+  position:absolute;
+  top:35px;
+  left:50%;
+  transform:translateX(-50%);
+  width:180px;
+  height:130px;
+
+  background:
+  radial-gradient(circle at 50% 60%,
+  #22283d,
+  #090d18);
+
+  border-radius:
+  50% 50% 45% 45%;
+
+  border:2px solid rgba(255,191,0,.25);
+
+  box-shadow:
+  0 0 50px rgba(255,191,0,.15),
+  inset 0 0 30px #000;
+}
+
+
+/* Gözler */
+
+.cute-eye {
+
+  position:absolute;
+
+  top:35px;
+
+  width:55px;
+  height:55px;
+
+  background:
+  radial-gradient(circle,
+  #fff7cc,
+  #ffbf00 60%,
+  #d97706);
+
+  border-radius:50%;
+
+  box-shadow:
+  0 0 25px #ffbf00;
+
+}
+
+
+.cute-eye:first-child {
+  left:28px;
+}
+
+.cute-eye:nth-child(2){
+  right:28px;
+}
+
+
+/* göz bebeği */
+
+.owl-pupil {
+
+ position:absolute;
+
+ width:18px;
+ height:18px;
+
+ background:#02040a;
+
+ border-radius:50%;
+
+ top:50%;
+ left:50%;
+
+ transform:
+ translate(-50%,-50%);
+
+}
+
+
+/* Gaga */
+
+.owl-beak {
+
+ position:absolute;
+
+ left:50%;
+ bottom:30px;
+
+ transform:translateX(-50%);
+
+ width:0;
+ height:0;
+
+ border-left:12px solid transparent;
+ border-right:12px solid transparent;
+
+ border-top:20px solid #ffbf00;
+
+}
+
+
+/* Gövde */
+
+.owl-body {
+
+ position:absolute;
+
+ bottom:0;
+
+ left:50%;
+
+ transform:translateX(-50%);
+
+ width:140px;
+ height:80px;
+
+ background:
+ radial-gradient(circle at 50% 0,
+ #303952,
+ #090d18);
+
+ border-radius:
+ 50% 50% 20% 20%;
+
+ z-index:-1;
+
+}
+
+
+/* Tatlı yanaklar */
+
+.owl-face:before,
+.owl-face:after {
+
+ content:"";
+
+ position:absolute;
+
+ bottom:35px;
+
+ width:25px;
+ height:15px;
+
+ background:#fb7185;
+
+ opacity:.35;
+
+ border-radius:50%;
+
+}
+
+
+.owl-face:before {
+ left:15px;
+}
+
+
+.owl-face:after {
+ right:15px;
+}
+
+
+/* Mobil */
+
+@media(max-width:860px){
+
+ .cute-owl{
+ display:none;
+ }
+
+}
   }
 </style>
 </head>
@@ -323,19 +536,28 @@
   <!-- Ay Halosu ve Fareyi Takip Eden Baykuş Gözleri -->
   <div class="moon-halo"></div>
   <!-- Sevimli Baykuş Baş ve Göz Yapısı -->
-  <div class="owl-head-container">
-    <div class="owl-horns">
-      <div class="horn left"></div>
-      <div class="horn right"></div>
-    </div>
-    <div class="owl-eyes-container">
-      <div class="owl-eye"><div class="owl-pupil" id="pupil-left"></div></div>
-      <div class="owl-eye"><div class="owl-pupil" id="pupil-right"></div></div>
-    </div>
-    <div class="owl-beak"></div>
-  </div>
+  <!-- Sevimli Baykuş -->
+  <div class="cute-owl">
+    <div class="owl-ear owl-ear-left"></div>
+    <div class="owl-ear owl-ear-right"></div>
 
-  <div class="wrap hero-inner">
+    <div class="owl-face">
+
+      <div class="owl-eye cute-eye">
+       <div class="owl-pupil" id="pupil-left"></div>
+      </div>
+
+      <div class="owl-eye cute-eye">
+       <div class="owl-pupil" id="pupil-right"></div>
+      </div>
+
+      <div class="owl-beak"></div>
+
+    </div>
+
+  <div class="owl-body"></div>
+</div>
+   <div class="wrap hero-inner">
     <span class="eyebrow"><span></span>Kali-rolling temelli karanlık zeka</span>
     <h1>Uçuşu kadar <em>hafif</em>,<br>pençeleri kadar güçlü.</h1>
     <p class="lead">TechizatOS; pentest araç setini, geliştirici ortamını ve yerel yapay zekâyı tek bir kalıcı sistemde birleştiren, Baykuş Strix'in nöbetinde hazır bekleyen özel Linux dağıtımı.</p>
