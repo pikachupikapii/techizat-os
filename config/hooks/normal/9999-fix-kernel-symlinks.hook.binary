@@ -1,0 +1,23 @@
+#!/bin/sh
+set -e
+if [ -d "live" ]; then
+    DIR="live"
+elif [ -d "binary/live" ]; then
+    DIR="binary/live"
+else
+    echo "[!] live klasoru bulunamadi, mevcut dizin: $(pwd)" >&2
+    ls -la
+    exit 1
+fi
+cd "$DIR"
+echo "[*] Calisilan dizin: $(pwd)"
+KERNEL=$(ls vmlinuz-* 2>/dev/null | head -n1)
+INITRD=$(ls initrd.img-* 2>/dev/null | head -n1)
+if [ -n "$KERNEL" ] && [ ! -e vmlinuz ]; then
+    ln -sf "$KERNEL" vmlinuz
+    echo "[*] vmlinuz symlink olusturuldu -> $KERNEL"
+fi
+if [ -n "$INITRD" ] && [ ! -e initrd.img ]; then
+    ln -sf "$INITRD" initrd.img
+    echo "[*] initrd.img symlink olusturuldu -> $INITRD"
+fi

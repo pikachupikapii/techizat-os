@@ -10,7 +10,6 @@ echo "[*] Sistem temizleniyor..."
 
 # APT cache temizle
 apt-get clean
-apt-get autoremove -y
 
 # Geçici dosyaları temizle
 rm -rf /tmp/*
@@ -29,6 +28,5 @@ find / -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
 find / -name "*.pyc" -delete 2>/dev/null || true
 
 # Paket listelerini temizle (ISO'da gereksiz)
-rm -rf /var/lib/apt/lists/*
 
 echo "[✓] Temizlik tamamlandı."

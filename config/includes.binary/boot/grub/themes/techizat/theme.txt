@@ -1,0 +1,99 @@
+# ============================================
+# TECHIZAT OS - GRUB TEMA
+# Renkler: Amber #FFBF00 | Mor #4B0082
+# ============================================
+
+# Arka plan
+desktop-image: "background.png"
+desktop-color: "#080a5c"
+
+# Genel yazı tipi
+title-text: ""
+title-font: "DejaVu Sans Bold 28"
+title-color: "#FFBF00"
+
+# ============================================
+# BOOT MENÜSÜ KUTUSU
+# ============================================
++ boot_menu {
+    left   = 15%
+    top    = 25%
+    width  = 70%
+    height = 50%
+
+    item_font       = "DejaVu Sans 16"
+    item_color      = "#BCB88A"
+    selected_item_color = "#080a5c"
+
+    item_height     = 40
+    item_padding    = 10
+    item_spacing    = 4
+
+    selected_item_pixmap_style = "select_*.png"
+
+    icon_width  = 32
+    icon_height = 32
+    item_icon_space = 16
+
+    scrollbar = false
+}
+
+# ============================================
+# SAYAÇ (GERİ SAYIM)
+# ============================================
++ label {
+    top    = 78%
+    left   = 50%
+    width  = 30%
+    align  = center
+    id     = __timeout__
+    text   = "Otomatik başlatma: %d saniye"
+    font   = "DejaVu Sans 14"
+    color  = "#40E0D0"
+}
+
+# ============================================
+# ALT BİLGİ ÇUBUĞU
+# ============================================
++ label {
+    top   = 93%
+    left  = 2%
+    width = 50%
+    align = left
+    text  = "Techizat OS v1.0 - Baykuş"
+    font  = "DejaVu Sans Bold 13"
+    color = "#FFBF00"
+}
+
++ label {
+    top   = 93%
+    left  = 60%
+    width = 38%
+    align = right
+    text  = "↑↓ Seç  |  Enter Başlat  |  E Düzenle"
+    font  = "DejaVu Sans 12"
+    color = "#BCB88A"
+}
+
+# ============================================
+# YATAY ÇİZGİLER (DEKORASYON)
+# ============================================
++ label {
+    top   = 22%
+    left  = 5%
+    width = 90%
+    align = center
+    text  = "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    font  = "DejaVu Sans 10"
+    color = "#4B0082"
+}
+
++ label {
+    top   = 77%
+    left  = 5%
+    width = 90%
+    align = center
+    text  = "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    font  = "DejaVu Sans 10"
+    color = "#4B0082"
+}

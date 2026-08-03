@@ -3,23 +3,32 @@
 # TECHIZAT OS - DİL AYARI HOOK'U
 # Türkçe ve İngilizce çoklu dil desteği
 # ============================================
-
 set -e
-
 echo "[*] Dil ayarları yapılıyor..."
 
-# Locale oluştur
-locale-gen tr_TR.UTF-8
-locale-gen en_US.UTF-8
+apt-get install --reinstall -y locales libc-l10n
+
+# Locale dosyasına gerekli satırları ekle (standart Debian yöntemi)
+sed -i 's/^# *tr_TR.UTF-8 UTF-8/tr_TR.UTF-8 UTF-8/' /etc/locale.gen
+sed -i 's/^# *en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+grep -qxF "tr_TR.UTF-8 UTF-8" /etc/locale.gen || echo "tr_TR.UTF-8 UTF-8" >> /etc/locale.gen
+grep -qxF "en_US.UTF-8 UTF-8" /etc/locale.gen || echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+
+echo "[*] /etc/locale.gen icerigi:"
+grep -v "^#" /etc/locale.gen | grep -v "^$"
+
+# Parametresiz calistir, dosyadan oku
+locale-gen
+
 update-locale LANG=tr_TR.UTF-8
 
 # Klavye düzeni (Türkçe Q)
-cat > /etc/default/keyboard << EOF
+cat > /etc/default/keyboard << KBEOF
 XKBMODEL="pc105"
 XKBLAYOUT="tr,us"
 XKBVARIANT=","
 XKBOPTIONS="grp:alt_shift_toggle"
 BACKSPACE="guess"
-EOF
+KBEOF
 
 echo "[✓] Dil ayarları tamamlandı."
