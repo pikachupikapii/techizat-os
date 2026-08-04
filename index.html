@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechizatOS — Baykuşun Nöbetinde</title>
+<meta name="description" content="Kali tabanlı, pentest ve geliştirme araçlarıyla donatılmış özel Linux dağıtımı.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night-void: #02040a;
+    --night-deep: #050b18;
+    --indigo-glow: #1a237e;
+    --violet-accent: #6b21a8;
+    --owl-amber: #ffbf00;
+    --feather-gray: #94a3b8;
+    --frost-white: #f8fafc;
+    --card-bg: rgba(10, 15, 30,  0.65);
+    --border-color: rgba(148, 163, 184, 0.12);
+    --radius: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  
+  body {
+    background-color: var(--night-void);
+    color: var(--feather-gray);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* ARKAPLAN EFEKTLERİ (Yıldızlar, Sis ve Takımyıldızları) */
+  .night-sky {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events:none;
+    background: 
+      radial-gradient(circle at 50% 20%, rgba(26, 35, 126, 0.35) 0%, transparent 60%),
+      radial-gradient(circle at 80% 80%, rgba(107, 33, 168, 0.2) 0%, transparent 50%),
+      var(--night-void);
+  }
+
+  .stars {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events:none;
+    background-image: 
+      radial-gradient(1.5px 1.5px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 40px 70px, var(--owl-amber), rgba(0,0,0,0)),
+      radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 160px 120px, #94a3b8, rgba(0,0,0,0));
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    opacity: 0.4;
+    animation: twinkle 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    0% { opacity: 0.3; transform: scale(1); }
+    100% { opacity: 0.7; transform: scale(1.02); }
+  }
+
+  .fog-layer {
+    position: fixed;
+    inset: -50%;
+    z-index: 1;
+    pointer-events:none;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.008" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.04"/></svg>');
+    opacity: 0.3;
+    pointer-events: none;
+    animation: drift 40s linear infinite;
+  }
+
+  @keyframes drift {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(-30px, -20px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--frost-white);
+    letter-spacing: -0.02em;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* NAVİGASYON */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    backdrop-filter: blur(12px);
+    background: rgba(2, 4, 10, 0.85);
+    border-bottom: 1px solid var(--border-color);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: 'Space Grotesk'; font-weight: 700; font-size: 1.2rem; color: var(--frost-white); }
+  .brand-mark { width: 32px; height: 32px; flex-shrink: 0; filter: drop-shadow(0 0 8px rgba(255,191,0,0.4)); }
+  .navlinks { display: flex; gap: 32px; font-size: 0.92rem; color: var(--feather-gray); }
+  .navlinks a:hover { color: var(--owl-amber); }
+  .nav-cta {
+    padding: 10px 22px; border-radius: 999px; background: var(--owl-amber); color: #02040a;
+    font-weight: 600; font-size: 0.88rem; box-shadow: 0 0 20px rgba(255,191,0,0.25);
+    transition: all 0.2s ease;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 25px rgba(255,191,0,0.4); }
+  .navtoggle { display: none; background: none; border: none; color: var(--frost-white); font-size: 1.6rem; cursor: pointer; }
+
+  /* HERO & BAYKUŞ GÖZLERİ / HALO */
+  .hero {
+    position:relative;
+    z-index:2;
+    padding:140px 0 120px;
+   text-align:center;
+  }
+  
+  .moon-halo {
+    position: absolute; top: 40px; left: 50%; transform: translateX(-50%);
+    width: 220px; height: 220px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,191,0,0.12) 0%, rgba(107,33,168,0.15) 45%, transparent 70%);
+    box-shadow: 0 0 90px rgba(255,191,0,0.1);
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .owl-beak {
+    position: absolute; top: 48px; left: 50%; transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 10px solid var(--owl-amber);
+    filter: drop-shadow(0 0 6px rgba(255,191,0,0.5));
+  
+  }
+  .owl-pupil {
+    position: absolute; width: 14px; height: 14px; background: #02040a; border-radius: 50%;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    transition: transform 0.05s ease-out;
+  }
+  @keyframes blink {
+    0%, 96%, 100% { transform: scaleY(1); }
+    98% { transform: scaleY(0.05); }
+  }
+
+  .hero-inner { position: relative; z-index: 2; margin-top: 40px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono'; font-size: 0.78rem;
+    color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 6px 16px; border-radius: 999px;
+    background: rgba(56, 189, 248, 0.05);
+  }
+  .eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 10px #38bdf8; }
+  
+  .hero h1 { font-size: clamp(2.5rem, 6vw, 4.8rem); font-weight: 700; margin: 24px 0 20px; line-height: 1.1; }
+  .hero h1 em { font-style: normal; color: var(--owl-amber); text-shadow: 0 0 20px rgba(255,191,0,0.3); }
+  .hero p.lead { max-width: 640px; margin: 0 auto 40px; font-size: 1.12rem; color: var(--feather-gray); }
+
+  .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    padding: 15px 32px; border-radius: 12px; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 10px;
+    transition: all 0.2s ease;
+  }
+  .btn-primary { background: var(--owl-amber); color: #02040a; box-shadow: 0 0 25px rgba(255,191,0,0.3); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(255,191,0,0.5); }
+  .btn-ghost { background: rgba(255,255,255,0.03); color: var(--frost-white); border: 1px solid var(--border-color); }
+  .btn-ghost:hover { border-color: var(--violet-accent); background: rgba(107,33,168,0.1); }
+  
+  .hero-meta { margin-top: 24px; font-family: 'JetBrains Mono'; font-size: 0.78rem; color: #64748b; }
+  .hero-meta a { color: #cbd5e1; border-bottom: 1px dotted #cbd5e1; }
+
+  /* BÖLÜMLER ORTAK */
+  section { padding: 110px 0; position: relative; }
+  .section-head { max-width: 640px; margin: 0 auto 60px; text-align: center; }
+  .kicker { font-family: 'JetBrains Mono'; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--violet-accent); font-weight: 600; }
+  .section-head h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-top: 10px; }
+  .section-head p { margin-top: 14px; color: var(--feather-gray); }
+
+  /* ÖZELLİKLER VE KARTLAR (Mor Işık Efekti) */
+  .fgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .fcard {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 32px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  .fcard:hover {
+    border-color: rgba(107, 33, 168, 0.6);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px -10px rgba(107, 33, 168, 0.35);
+  }
+  .fbadge {
+    display: inline-block; font-family: 'JetBrains Mono'; font-size: 0.68rem; padding: 4px 12px; border-radius: 999px;
+    margin-bottom: 16px; letter-spacing: 0.03em;
+  }
+  .fbadge.critical { background: rgba(225, 29, 72, 0.15); color: #fb7185; border: 1px solid rgba(225, 29, 72, 0.3); }
+  .fbadge.warm { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+  .fbadge.soft { background: rgba(107, 33, 168, 0.2); color: #d8b4fe; border: 1px solid rgba(107, 33, 168, 0.4); }
+  
+  .fcard h3 { font-size: 1.2rem; margin-bottom: 10px; }
+  .fcard p { font-size: 0.94rem; color: var(--feather-gray); }
+  .fcard .stack { margin-top: 16px; font-family: 'JetBrains Mono'; font-size: 0.76rem; color: #64748b; }
+
+  /* EKRAN GÖRÜNTÜLERİ */
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .shot {
+    border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border-color);
+    background: linear-gradient(160deg, rgba(26,35,126,0.2), rgba(2,4,10,0.9));
+    aspect-ratio: 16/10; position: relative;
+  }
+  .shot .chrome { height: 32px; display: flex; align-items: center; gap: 6px; padding: 0 12px; background: rgba(2,4,10,0.7); border-bottom: 1px solid var(--border-color); }
+  .chrome i { width: 9px; height: 9px; border-radius: 50%; background: #334155; }
+  .shot .placeholder {
+    position: absolute; inset: 32px 0 0; display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono'; font-size: 0.78rem; color: #64748b; text-align: center; padding: 20px;
+  }
+  .shot figcaption { position: absolute; bottom: 14px; left: 16px; font-size: 0.82rem; color: var(--frost-white); font-weight: 500; }
+
+  /* ZAMAN ÇİZELGESİ (CHANGELOG) */
+  .timeline { max-width: 720px; margin: 0 auto; border-left: 1px solid rgba(107, 33, 168, 0.4); padding-left: 32px; }
+  .tl-item { position: relative; padding-bottom: 48px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -37.5px; top: 4px; width: 11px; height: 11px; border-radius: 50%;
+    background: var(--night-void); border: 2px solid var(--owl-amber); box-shadow: 0 0 12px var(--owl-amber);
+  }
+  .tl-ver { font-family: 'JetBrains Mono'; color: var(--owl-amber); font-size: 0.85rem; }
+  .tl-item h3 { font-size: 1.2rem; margin: 6px 0 10px; }
+  .tl-item ul { list-style: none; color: var(--feather-gray); font-size: 0.94rem; }
+  .tl-item li { position: relative; padding-left: 20px; margin-bottom: 8px; }
+  .tl-item li::before { content: '—'; position: absolute; left: 0; color: var(--violet-accent); }
+
+  /* İNDİRME BÖLÜMÜ */
+  .download {
+    background: radial-gradient(circle at 50% 0%, rgba(107, 33, 168, 0.15), transparent 70%);
+    border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
+  }
+  .dl-card {
+    max-width: 760px; margin: 0 auto; background: var(--card-bg); border: 1px solid var(--border-color);
+    border-radius: 20px; padding: 48px; text-align: center; backdrop-filter: blur(15px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+  .dl-card h2 { font-size: 2.1rem; margin-bottom: 14px; }
+  .dl-card p { color: var(--feather-gray); margin-bottom: 32px; }
+  .dl-options { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+  .dl-foot { font-family: 'JetBrains Mono'; font-size: 0.76rem; color: #64748b; }
+  .dl-foot code { color: #cbd5e1; }
+
+  footer { 
+  padding: 50px 0; 
+  text-align: center; 
+  font-size: 0.85rem; 
+  color: #64748b; 
+  border-top: 1px solid var(--border-color); 
+}
+
+footer a:hover { 
+  color: var(--owl-amber); 
+}
+  /* ==========================
+   SEVİMLİ BAYKUŞ TASARIMI
+========================== */
+
+.cute-owl {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 220px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+
+/* Kulaklar */
+
+.owl-ear {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 35px solid transparent;
+  border-right: 35px solid transparent;
+  border-bottom: 65px solid #151a2c;
+  filter: drop-shadow(0 0 15px rgba(255,191,0,.3));
+}
+
+.owl-ear-left {
+  left: 15px;
+  transform: rotate(-20deg);
+}
+
+.owl-ear-right {
+  right: 15px;
+  transform: rotate(20deg);
+}
+
+
+/* Baykuş kafası */
+
+.owl-face {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 180px;
+  height: 135px;
+
+  background:
+  radial-gradient(circle at 50% 40%,
+  #374151,
+  #090d18 75%);
+
+  border-radius: 50% 50% 45% 45%;
+
+  border: 2px solid rgba(255,191,0,.25);
+
+  box-shadow:
+  0 0 50px rgba(255,191,0,.18),
+  inset 0 0 30px #000;
+}
+
+
+/* Gözler */
+
+.cute-eye {
+
+  position: absolute;
+
+  top: 35px;
+
+  width: 55px;
+  height: 55px;
+
+  background:
+  radial-gradient(circle,
+  #fff7cc 0%,
+  #ffbf00 55%,
+  #d97706 100%);
+
+  border-radius: 50%;
+
+  box-shadow:
+  0 0 25px #ffbf00;
+
+  animation: blink 7s infinite;
+}
+
+
+.left-eye {
+  left: 32px;
+}
+
+
+.right-eye {
+  right: 32px;
+}
+
+
+/* Göz bebeği */
+
+.owl-pupil {
+
+  position: absolute;
+
+  width: 18px;
+  height: 18px;
+
+  background: #02040a;
+
+  border-radius: 50%;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%,-50%);
+
+  transition: transform .05s ease-out;
+}
+
+
+/* Gaga */
+
+.owl-beak {
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 28px;
+
+  transform: translateX(-50%);
+
+  width: 0;
+  height: 0;
+
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+
+  border-top: 20px solid var(--owl-amber);
+
+}
+
+
+/* Gövde */
+
+.owl-body {
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 140px;
+  height: 80px;
+
+  background:
+  radial-gradient(circle at 50% 0,
+  #303952,
+  #090d18);
+
+  border-radius:
+  50% 50% 20% 20%;
+
+}
+
+
+/* Yanaklar */
+
+.owl-face::before,
+.owl-face::after {
+
+  content:"";
+
+  position:absolute;
+
+  bottom:35px;
+
+  width:25px;
+  height:15px;
+
+  background:#fb7185;
+
+  opacity:.35;
+
+  border-radius:50%;
+
+}
+
+
+.owl-face::before {
+  left:15px;
+}
+
+
+.owl-face::after {
+  right:15px;
+}
+
+@media(max-width:860px){
+  
+  .moon-halo {
+    top:20px;
+    width:170px;
+    height:170px;
+ }
+
+  .cute-owl {
+    display:block;
+    top:70px;
+    width:160px;
+    height:160px;
+    transform:translateX(-50%) scale(.8);
+  }
+
+  .owl-face {
+    width:140px;
+    height:110px;
+  }
+
+  .cute-eye {
+    width:42px;
+    height:42px;
+    top:28px;
+  }
+
+  .left-eye {
+    left:22px;
+  }
+
+  .right-eye {
+    right:22px;
+  }
+
+  .owl-ear {
+    border-left-width:25px;
+    border-right-width:25px;
+    border-bottom-width:45px;
+  }
+
+}
+</style>
+</head>
+<body>
+
+<!-- Arka Plan Atmosfer Katmanları -->
+<div class="night-sky"></div>
+<div class="stars"></div>
+<div class="fog-layer"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">
+  <svg class="brand-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Baykuş Kulakları / Silüeti -->
+    <path d="M7 11L12 5L16 11L20 5L25 11C27 15 27 21 24 25C21 28 11 28 8 25C5 21 5 15 7 11Z" fill="#0b0f19" stroke="#FFBF00" stroke-width="1.5" stroke-linejoin="round"/>
+    <!-- Sevimli Baykuş Gözleri -->
+    <circle cx="12" cy="15" r="3.5" fill="#FFBF00"/>
+    <circle cx="12" cy="15" r="1.5" fill="#02040a"/>
+    <circle cx="20" cy="15" r="3.5" fill="#FFBF00"/>
+    <circle cx="20" cy="15" r="1.5" fill="#02040a"/>
+    <!-- Baykuş Gagası -->
+    <path d="M16 17L14 20H18L16 17Z" fill="#FFBF00"/>
+  </svg>
+        TechizatOS
+        
+  </div>
+    <div class="navlinks">
+      <a href="#ozellikler">Özellikler</a>
+      <a href="#ekran-goruntuleri">Ekran Görüntüleri</a>
+      <a href="#surumler">Sürümler</a>
+      <a href="#indir" class="nav-cta">ISO İndir</a>
+    </div>
+    <button class="navtoggle">☰</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="moon-halo"></div>
+  <!-- Sevimli Baykuş Baş ve Göz Yapısı -->
+  <!-- Sevimli Baykuş -->
+  <div class="cute-owl">
+    <div class="owl-ear owl-ear-left"></div>
+    <div class="owl-ear owl-ear-right"></div>
+
+    <div class="owl-face">
+      <div class="owl-eye cute-eye left-eye">
+      <div class="owl-pupil" id="pupil-left"></div>
+     </div>
+
+       <div class="owl-eye cute-eye right-eye">
+       <div class="owl-pupil" id="pupil-right"></div>
+      </div>
+
+      <div class="owl-beak"></div>
+
+    </div>
+
+  <div class="owl-body"></div>
+</div>
+   <div class="wrap hero-inner">
+    <span class="eyebrow"><span></span>Kali-rolling temelli karanlık zeka</span>
+    <h1>Uçuşu kadar <em>hafif</em>,<br>pençeleri kadar güçlü.</h1>
+    <p class="lead">TechizatOS; pentest araç setini, geliştirici ortamını ve yerel yapay zekâyı tek bir kalıcı sistemde birleştiren, Baykuş Strix'in nöbetinde hazır bekleyen özel Linux dağıtımı.</p>
+    <div class="hero-ctas">
+      <a href="#indir" class="btn btn-primary">↓ ISO'yu İndir</a>
+      <a href="https://github.com/pikachupikapii/techizat-os" class="btn btn-ghost">Kaynak Kodu · GitHub</a>
+    </div>
+    <div class="hero-meta">v1.0 · amd64 · <span class="mono">~5.9 GB</span> · <a href="#indir">SHA256 doğrulaması</a></div>
+  </div>
+</header>
+
+<section id="ozellikler" class="features">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Donanım Mimarisi</span>
+      <h2>Tek kurulum, tam donanım</h2>
+      <p>Her araç seti önceden kusursuzca yapılandırılmış halde gelir; kurulumdan hemen sonra karanlığın hakimi olursun.</p>
+    </div>
+    <div class="fgrid">
+      <div class="fcard">
+        <span class="fbadge critical">Pentest</span>
+        <h3>Saldırı Arsenali</h3>
+        <p>Ağ keşfinden parola kırmaya, kablosuz saldırılardan MITM analizine kadar uçtan uca sızma testi araçları.</p>
+        <div class="stack">nmap · metasploit-framework · aircrack-ng · wireshark · sqlmap · hydra</div>
+      </div>
+      <div class="fcard">
+        <span class="fbadge warm">Geliştirici</span>
+        <h3>Kod Yazmaya Hazır</h3>
+        <p>Diller ve konteynerleşme araçları kurulu gelir, ekstra bağımlılık aramadan projene kesintisiz devam edersin.</p>
+        <div class="stack">python3 · nodejs · golang · rustc · docker.io · git</div>
+      </div>
+      <div class="fcard">
+        <span class="fbadge soft">Yapay Zekâ</span>
+        <h3>Yerel Model Çalıştırma</h3>
+        <p>Ollama önceden kurulu; internet bağlantısına ihtiyaç duymadan cihazında yerel dil modelleri koştur.</p>
+        <div class="stack">ollama · 127.0.0.1:11434</div>
+      </div>
+      <div class="fcard">
+        <span class="fbadge soft">Masaüstü</span>
+        <h3>Strix Teması</h3>
+        <p>Özel gece duvar kağıdı, optimize edilmiş panel düzeni ve karanlık estetikle yapılandırılmış XFCE ortamı.</p>
+        <div class="stack">xfce4 · kali-desktop-base</div>
+      </div>
+      <div class="fcard">
+        <span class="fbadge warm">Tarayıcı</span>
+        <h3>Brave Önceden Kurulu</h3>
+        <p>Gelişmiş reklam ve izleyici engelleyici, tam gizlilik odaklı tarayıcı ilk açılıştan itibaren hazır.</p>
+        <div class="stack">brave-browser</div>
+      </div>
+      <div class="fcard">
+        <span class="fbadge soft">Yerelleştirme</span>
+        <h3>Türkçe Öncelikli</h3>
+        <p>Sistem dili ve klavye düzeni ilk açılışta kusursuz bir şekilde Türkçe olarak yapılandırılmıştır.</p>
+        <div class="stack">tr_TR.UTF-8</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ekran-goruntuleri">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Önizleme</span>
+      <h2>Sistemin içinden</h2>
+      <p>Masaüstünden terminal oturumuna, karanlık katmanların arasından gerçek TechizatOS kareleri.</p>
+    </div>
+    <div class="shots">
+      <figure class="shot">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <div class="placeholder">[ masaüstü ekran görüntüsü buraya ]</div>
+        <figcaption>Strix masaüstü — XFCE</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <div class="placeholder">[ terminal ekran görüntüsü buraya ]</div>
+        <figcaption>fastfetch + terminal</figcaption>
+      </figure>
+      <figure class="shot">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <div class="placeholder">[ araç seti ekran görüntüsü buraya ]</div>
+        <figcaption>Pentest araç seti</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="surumler">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">Zaman Tüneli</span>
+      <h2>Sürüm günlüğü</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-ver">v1.0 — İlk Sürüm</div>
+        <h3>Temel oluşturuldu</h3>
+        <ul>
+          <li>Kali kali-rolling temelli, kalıcı ISO build hattı</li>
+          <li>Pentest, geliştirici ve yapay zekâ araç setleri entegre edildi</li>
+          <li>Strix masaüstü teması ve gece konseptli duvar kağıdı eklendi</li>
+          <li>Türkçe yerelleştirme varsayılan olarak ayarlandı</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="indir" class="download">
+  <div class="wrap">
+    <div class="dl-card">
+      <h2>ISO'yu indir</h2>
+      <p>~5.9 GB · amd64 · hibrit ISO (BIOS + UEFI destekli, USB belleğe doğrudan yazılabilir)</p>
+      <div class="dl-options">
+        <a href="https://archive.org/download/live-image-amd64.hybrid_202607/live-image-amd64.hybrid.iso" class="btn btn-primary">↓ Archive.org üzerinden indir</a>
+        <a href="https://archive.org/download/live-image-amd64.hybrid_202607/live-image-amd64.hybrid_202607_archive.torrent" class="btn btn-ghost">Magnet / Torrent</a>
+      </div>
+      <div class="dl-foot">SHA256: <code>d5a41f4d46a9e6bde18c1acaea0e8582bf06c8d80f6e009be25d3644e5a76917  live-image-amd64.hybrid.iso</code></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    TechizatOS · <a href="https://github.com/pikachupikapii/techizat-os">Kaynak kod</a> · Kali Linux tabanlıdır, resmi Kali projesiyle ilişkili değildir.
+  </div>
+</footer>
+
+<!-- Baykuş Gözlerinin Fareyi Takip Etmesi İçin Eklenen JavaScript -->
+<script>
+  document.addEventListener('mousemove', (e) => {
+    const eyes = [
+      { pupil: document.getElementById('pupil-left'), rect: document.getElementById('pupil-left').parentElement.getBoundingClientRect() },
+      { pupil: document.getElementById('pupil-right'), rect: document.getElementById('pupil-right').parentElement.getBoundingClientRect() }
+    ];
+
+    eyes.forEach(eye => {
+      const eyeCenterX = eye.rect.left + eye.rect.width / 2;
+      const eyeCenterY = eye.rect.top + eye.rect.height / 2;
+      
+      const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
+      const distance = Math.min(5, Math.hypot(
+      e.clientX - eyeCenterX,
+      e.clientY - eyeCenterY
+      ) / 20);
+      
+      const x = Math.cos(angle) * distance;
+      const y = Math.sin(angle) * distance;
+      
+      eye.pupil.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+    });
+  });
+</script>
+
+</body>
+</html>
